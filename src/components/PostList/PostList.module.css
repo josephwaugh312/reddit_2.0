@@ -1,0 +1,55 @@
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Maintain single column layout across all screen sizes */
+@media (min-width: 768px) {
+  .postList {
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .postList {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .postList {
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .postList {
+    gap: 2rem;
+  }
+}
+
+/* Ensure each post card takes full width */
+.postList > * {
+  width: 100%;
+}
+
+.emptyState {
+  background-color: white;
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.emptyState p:first-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.emptyState p:last-child {
+  color: var(--text-secondary);
+}

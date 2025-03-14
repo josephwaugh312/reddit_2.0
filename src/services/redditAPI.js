@@ -15,14 +15,16 @@ const fetchFromReddit = async (endpoint, params = {}) => {
 
 // API methods
 export const redditAPI = {
-  getPopularPosts: (limit = 25) => 
-    fetchFromReddit('/r/popular', { limit }),
+  getPopularPosts: (sortBy = 'hot', limit = 25) => 
+    fetchFromReddit(`/r/popular/${sortBy}`, { limit }),
   
   getSubredditPosts: (subreddit, sortBy = 'hot', limit = 25) => 
     fetchFromReddit(`/r/${subreddit}/${sortBy}`, { limit }),
   
-  searchPosts: (query, limit = 25) => 
-    fetchFromReddit('/search', { q: query, limit }),
+  searchPosts: (query, limit = 25) => {
+    console.log('API searching for:', query);
+    return fetchFromReddit('/search', { q: query, limit });
+  },
   
   getPostComments: (postId, subreddit) => 
     fetchFromReddit(`/r/${subreddit}/comments/${postId}`),

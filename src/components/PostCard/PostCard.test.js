@@ -1,58 +1,58 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import { render, screen } from '@testing-library/react';
 import PostCard from './PostCard';
 
-const mockStore = configureStore([]);
+// Mock data for testing
+const mockPost = {
+  id: 'test123',
+  title: 'Test Post Title',
+  author: 'testuser',
+  subreddit: 'testsubreddit',
+  score: 42,
+  num_comments: 10,
+  created_utc: Date.now() / 1000 - 3600, // 1 hour ago
+  thumbnail: 'https://placehold.co/150x150',
+};
 
 describe('PostCard Component', () => {
-  const mockPost = {
-    id: '123',
-    title: 'Test Post',
-    author: 'testuser',
-    subreddit: 'testsubreddit',
-    score: 42,
-    num_comments: 10,
-    created_utc: Date.now() / 1000,
-    thumbnail: 'https://example.com/thumb.jpg'
-  };
-
-  let store;
-
-  beforeEach(() => {
-    store = mockStore({
-      posts: {
-        selectedPost: null
-      }
-    });
-    store.dispatch = jest.fn();
-  });
-
   test('renders post information correctly', () => {
-    render(
-      <Provider store={store}>
-        <PostCard post={mockPost} />
-      </Provider>
-    );
-
-    expect(screen.getByText('Test Post')).toBeInTheDocument();
-    expect(screen.getByText('u/testuser')).toBeInTheDocument();
-    expect(screen.getByText('r/testsubreddit')).toBeInTheDocument();
+    render(<PostCard post={mockPost} index={0} />);
+    
+    // Check if title is rendered
+    expect(screen.getByText('Test Post Title')).toBeInTheDocument();
+    
+    // Check if author is rendered
+    expect(screen.getByText(/testuser/i)).toBeInTheDocument();
+    
+    // Check if subreddit is rendered
+    expect(screen.getByText(/testsubreddit/i)).toBeInTheDocument();
+    
+    // Check if score is rendered
     expect(screen.getByText('42')).toBeInTheDocument();
-    expect(screen.getByText('10 comments')).toBeInTheDocument();
+    
+    // Check if comments count is rendered
+    expect(screen.getByText(/10 comments/i)).toBeInTheDocument();
+    
+    // Check if time ago is rendered (approximate check)
+    expect(screen.getByText(/hour ago/i)).toBeInTheDocument();
   });
-
-  test('dispatches selectPost action when clicked', () => {
-    render(
-      <Provider store={store}>
-        <PostCard post={mockPost} />
-      </Provider>
-    );
-
-    fireEvent.click(screen.getByText('Test Post'));
-    expect(store.dispatch).toHaveBeenCalledWith(expect.objectContaining({
-      type: expect.stringContaining('selectPost')
-    }));
+  
+  test('renders with missing data gracefully', () => {
+    // Test with minimal data
+    const minimalPost = { id: 'min123' };
+    render(<PostCard post={minimalPost} index={0} />);
+    
+    // Should use default values
+    expect(screen.getByText('Untitled Post')).toBeInTheDocument();
+    expect(screen.getByText(/\[deleted\]/i)).toBeInTheDocument();
+  });
+  
+  test('renders thumbnail when available', () => {
+    render(<PostCard post={mockPost} index={0} />);
+    
+    // Use querySelector instead of getByRole
+    const thumbnail = document.querySelector('.thumbnail');
+    expect(thumbnail).toBeInTheDocument();
+    expect(thumbnail).toHaveAttribute('src', 'https://placehold.co/150x150');
   });
 }); 

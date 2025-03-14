@@ -1,0 +1,48 @@
+.comment {
+  padding-left: 1rem;
+  border-left: 2px solid #edeff1;
+  margin-bottom: 1rem;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.collapseButton {
+  background-color: transparent;
+  border: none;
+  color: #7c7c7c;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.collapseButton.collapsed {
+  color: #0079d3;
+}
+
+.author {
+  font-weight: 500;
+  color: #1a1a1b;
+}
+
+.score, .date {
+  color: #7c7c7c;
+  font-size: 0.8rem;
+}
+
+.commentBody {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.replies {
+  margin-top: 1rem;
+}

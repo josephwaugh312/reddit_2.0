@@ -1,0 +1,100 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin: 1rem 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.errorIcon {
+  color: #ff4500;
+  margin-bottom: 1rem;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1b;
+}
+
+.errorMessage {
+  color: #7c7c7c;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.retryButton {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retryButton:hover {
+  background-color: #e03d00;
+}
+
+.retryButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.3);
+}
+
+@media (min-width: 1440px) {
+  .errorContainer {
+    padding: 3rem;
+  }
+  
+  .errorIcon svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .errorTitle {
+    font-size: 1.8rem;
+  }
+  
+  .errorMessage {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+  
+  .retryButton {
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .errorContainer {
+    padding: 4rem;
+  }
+  
+  .errorIcon svg {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .errorTitle {
+    font-size: 2rem;
+  }
+  
+  .errorMessage {
+    font-size: 1.2rem;
+    max-width: 700px;
+  }
+  
+  .retryButton {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.2rem;
+  }
+}

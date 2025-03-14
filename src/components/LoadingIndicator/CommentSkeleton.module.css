@@ -1,0 +1,21 @@
+.commentSkeleton {
+  padding-left: 1rem;
+  border-left: 2px solid #edeff1;
+  margin-bottom: 1rem;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.commentBody {
+  margin-bottom: 1rem;
+}
+
+.replies {
+  margin-top: 1rem;
+  margin-left: 1rem;
+} 

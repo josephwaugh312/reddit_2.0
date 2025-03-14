@@ -1,0 +1,35 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0.5rem;
+  }
+}
+
+/* Add this media query for large screens */
+@media (min-width: 1440px) {
+  .mainContent {
+    max-width: 80%; /* Use percentage instead of fixed width */
+    min-width: 1200px; /* Ensure it doesn't get too narrow */
+  }
+}
+
+/* For extra large screens */
+@media (min-width: 1920px) {
+  .mainContent {
+    max-width: 70%;
+  }
+} 
