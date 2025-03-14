@@ -5,7 +5,6 @@ import styles from './Header.module.css';
 
 const Header = () => {
   console.log('Header styles:', styles); // Debug log
-  const navigate = useNavigate();
   
   return (
     <header className={styles.header}>
