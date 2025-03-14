@@ -1,10 +1,13 @@
 .postDetail {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .backButton {
@@ -43,6 +46,9 @@
   margin: 1rem 0;
   line-height: 1.5;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .imageContainer {
@@ -102,21 +108,24 @@
 }
 
 .linkContainer {
-    margin: 1rem 0;
-    word-break: break-all;
-  }
-  
-  .externalLink {
-    color: #0079d3;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  
-  .externalLink:hover {
-    text-decoration: underline;
-  }
+  margin: 1rem 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.externalLink {
+  color: #0079d3;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.externalLink:hover {
+  text-decoration: underline;
+}
 
 @media (min-width: 768px) {
   .postDetail {
@@ -136,5 +145,22 @@
   
   .title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .postDetail {
+    padding: 0.75rem;
+    border-radius: 0;
+  }
+  
+  .metadata {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
   }
 }
