@@ -7,11 +7,6 @@ const Header = () => {
   console.log('Header styles:', styles); // Debug log
   const navigate = useNavigate();
   
-  const handleNavClick = (path) => {
-    console.log('Navigating to:', path);
-    navigate(path);
-  };
-  
   return (
     <header className={styles.header}>
       <div className={styles.logo}>

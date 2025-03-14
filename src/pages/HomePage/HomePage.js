@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../../features/posts/postsSlice';
 import PostList from '../../components/PostList/PostList';
 import Filters from '../../components/Filters/Filters';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 import PostSkeleton from '../../components/LoadingIndicator/PostSkeleton';
 import ErrorDisplay from '../../components/ErrorDisplay/ErrorDisplay';
 import styles from './HomePage.module.css';

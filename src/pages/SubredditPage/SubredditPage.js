@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../../features/posts/postsSlice';
-import { setCategory, setSortBy } from '../../features/filters/filtersSlice';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 import ErrorDisplay from '../../components/ErrorDisplay/ErrorDisplay';
 import PostList from '../../components/PostList/PostList';
 import Filters from '../../components/Filters/Filters';
